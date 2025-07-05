@@ -1,0 +1,810 @@
+/* Super Mario Portfolio CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background: linear-gradient(135deg, #87CEEB 0%, #98FB98 100%);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+.game-container {
+    position: relative;
+    width: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="%2387CEEB"/><circle cx="20" cy="20" r="2" fill="white" opacity="0.7"/><circle cx="80" cy="40" r="1.5" fill="white" opacity="0.5"/><circle cx="60" cy="70" r="1" fill="white" opacity="0.6"/></svg>') repeat;
+}
+
+/* Header Styles */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 10px 0;
+    border-bottom: 4px solid #FFD700;
+}
+
+.score-bar {
+    display: flex;
+    justify-content: space-around;
+    font-size: 12px;
+    margin-bottom: 10px;
+    color: #FFD700;
+}
+
+.pipe-nav {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.pipe {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.pipe:hover {
+    transform: scale(1.1);
+}
+
+.pipe-body {
+    width: 50px;
+    height: 30px;
+    background: linear-gradient(45deg, #228B22, #32CD32);
+    border: 3px solid #000;
+    border-radius: 10px 10px 0 0;
+    position: relative;
+    margin: 0 auto;
+}
+
+.pipe-body::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 60px;
+    height: 15px;
+    background: linear-gradient(45deg, #228B22, #32CD32);
+    border: 3px solid #000;
+    border-radius: 10px;
+}
+
+.pipe-label {
+    color: #FFD700;
+    font-size: 8px;
+    margin-top: 5px;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #87CEEB 0%, #98FB98 50%, #90EE90 100%);
+}
+
+.mario-character {
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.mario-sprite {
+    width: 100px;
+    height: 100px;
+    background: #FF0000;
+    border-radius: 50% 50% 0 0;
+    position: relative;
+    animation: bounce 2s infinite;
+}
+
+.mario-sprite::before {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: #FFDBAC;
+    border-radius: 50%;
+    top: 10px;
+    left: 10px;
+}
+
+.mario-sprite::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #000;
+    border-radius: 50%;
+    top: 30px;
+    left: 25px;
+    box-shadow: 25px 0 0 #000;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.hero-text {
+    text-align: center;
+    color: white;
+    text-shadow: 3px 3px 0 #000;
+    z-index: 2;
+}
+
+.pixel-text {
+    margin: 10px 0;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    color: #FFFFFF;
+    text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+}
+
+.hero-text h2 {
+    font-size: 24px;
+    color: #FF6B6B;
+    margin: 20px 0;
+}
+
+.hero-text p {
+    font-size: 14px;
+    color: #FFF;
+    margin: 20px 0;
+}
+
+/* Removed glow animation - no longer needed */
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.social-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border: 3px solid #000;
+    transition: all 0.3s ease;
+    animation: float 3s ease-in-out infinite;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.social-btn:hover {
+    transform: translateY(-10px) scale(1.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.social-btn.linkedin {
+    background: linear-gradient(135deg, #0077B5, #005885);
+}
+
+.social-btn.github {
+    background: linear-gradient(135deg, #333, #000);
+}
+
+.social-btn.email {
+    background: linear-gradient(135deg, #FF6B6B, #FF4444);
+}
+
+.social-btn.resume {
+    background: linear-gradient(135deg, #8A2BE2, #4B0082);
+    position: relative;
+}
+
+.social-btn.resume::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 20px;
+    height: 20px;
+    background: #FFD700;
+    border-radius: 50%;
+    border: 2px solid #000;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulse 2s infinite;
+}
+
+.social-btn.resume::after {
+    content: '!';
+    color: #000;
+    font-weight: bold;
+}
+
+.social-icon {
+    font-size: 24px;
+    filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.5));
+}
+
+.social-btn:nth-child(2) { animation-delay: 0.5s; }
+.social-btn:nth-child(3) { animation-delay: 1s; }
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.floating-coins {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.coin {
+    width: 30px;
+    height: 30px;
+    background: #FFD700;
+    border-radius: 50%;
+    border: 3px solid #FFA500;
+    position: relative;
+    animation: float 3s ease-in-out infinite;
+}
+
+.coin::before {
+    content: '$';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFA500;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.coin:nth-child(2) { animation-delay: 0.5s; }
+.coin:nth-child(3) { animation-delay: 1s; }
+.coin:nth-child(4) { animation-delay: 1.5s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Section Styles */
+.section {
+    padding: 100px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.question-block-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.question-block {
+    width: 60px;
+    height: 60px;
+    background: #FFD700;
+    border: 4px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.question-block:hover {
+    transform: scale(1.1);
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
+    50% { box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); }
+}
+
+.section-title {
+    font-size: 32px;
+    color: #000;
+    text-shadow: 2px 2px 0 #FFF;
+}
+
+/* About Section */
+.content-area {
+    background: rgba(255, 255, 255, 0.9);
+    border: 4px solid #000;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.mario-facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.fact-block {
+    background: #F0F8FF;
+    border: 3px solid #4169E1;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.fact-block h3 {
+    color: #4169E1;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.fact-block p, .fact-block li {
+    color: #333;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.fact-block ul {
+    list-style: none;
+    margin-top: 10px;
+}
+
+.fact-block li {
+    margin: 8px 0;
+    padding-left: 10px;
+}
+
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.skill-block {
+    background: rgba(255, 255, 255, 0.9);
+    border: 4px solid #000;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.skill-block:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.skill-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.skill-icon.javascript { background: #F7DF1E; color: #000; }
+.skill-icon.react { background: #61DAFB; color: #000; }
+.skill-icon.node { background: #339933; }
+.skill-icon.python { background: #3776AB; }
+.skill-icon.sql { background: #336791; }
+.skill-icon.mongodb { background: #47A248; }
+.skill-icon.css { background: #1572B6; }
+
+.skill-icon::before {
+    content: attr(class);
+    font-size: 12px;
+}
+
+.skill-icon.javascript::before { content: 'JS'; }
+.skill-icon.react::before { content: 'RE'; }
+.skill-icon.node::before { content: 'NO'; }
+.skill-icon.python::before { content: 'PY'; }
+.skill-icon.sql::before { content: 'SQL'; }
+.skill-icon.mongodb::before { content: 'MDB'; }
+.skill-icon.css::before { content: 'CS'; }
+
+.skill-block span {
+    display: block;
+    margin: 15px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.skill-level {
+    font-size: 18px;
+    color: #FFD700;
+    text-shadow: 1px 1px 0 #000;
+}
+
+/* Projects Section */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.95);
+    border: 4px solid #000;
+    border-radius: 15px;
+    padding: 30px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.project-card.castle {
+    background: linear-gradient(135deg, #FFE4B5, #F5DEB3);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.project-header h3 {
+    color: #4169E1;
+    font-size: 16px;
+}
+
+.project-coins {
+    background: #FFD700;
+    color: #000;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    border: 2px solid #000;
+}
+
+.project-card p {
+    color: #333;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.project-tech {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.tech-tag {
+    background: #4169E1;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 10px;
+    border: 2px solid #000;
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 10px 20px;
+    border: 3px solid #000;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 12px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: #32CD32;
+    color: #000;
+}
+
+.btn-primary:hover {
+    background: #228B22;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: #FF6B6B;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #FF4444;
+    transform: translateY(-2px);
+}
+
+/* Contact Section */
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-top: 50px;
+}
+
+.contact-pipes {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-pipe {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    border: 3px solid #000;
+    transition: transform 0.3s ease;
+}
+
+.contact-pipe:hover {
+    transform: translateX(10px);
+}
+
+.pipe-entrance {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+    border: 2px solid #000;
+}
+
+.pipe-entrance.email { background: #FF6B6B; }
+.pipe-entrance.linkedin { background: #0077B5; }
+.pipe-entrance.github { background: #333; }
+.pipe-entrance.twitter { background: #1DA1F2; }
+
+.pipe-entrance::before {
+    content: '@';
+    font-weight: bold;
+}
+
+.pipe-entrance.email::before { content: '✉'; }
+.pipe-entrance.linkedin::before { content: '💼'; }
+.pipe-entrance.github::before { content: '🐱'; }
+.pipe-entrance.twitter::before { content: '🐦'; }
+
+.contact-pipe span {
+    color: #333;
+    font-size: 12px;
+}
+
+.contact-form {
+    background: rgba(255, 255, 255, 0.9);
+    border: 4px solid #000;
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.contact-form h3 {
+    color: #4169E1;
+    margin-bottom: 20px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.mario-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-field {
+    padding: 15px;
+    border: 3px solid #000;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 12px;
+    background: #F0F8FF;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #4169E1;
+    box-shadow: 0 0 10px rgba(65, 105, 225, 0.3);
+}
+
+.message-field {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Footer */
+.footer {
+    background: #000;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+}
+
+.footer-content p {
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.footer-sprites {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.sprite {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    animation: wiggle 2s ease-in-out infinite;
+}
+
+.sprite.goomba {
+    background: #8B4513;
+    position: relative;
+}
+
+.sprite.goomba::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #000;
+    border-radius: 50%;
+    top: 8px;
+    left: 5px;
+    box-shadow: 10px 0 0 #000;
+}
+
+.sprite.koopa {
+    background: #32CD32;
+    position: relative;
+}
+
+.sprite.koopa::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 15px;
+    background: #228B22;
+    border-radius: 50%;
+    top: 5px;
+    left: 5px;
+}
+
+.sprite.piranha {
+    background: #228B22;
+    position: relative;
+}
+
+.sprite.piranha::before {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #FFF;
+    border-radius: 50%;
+    top: 8px;
+    left: 6px;
+    box-shadow: 8px 0 0 #FFF, 4px 4px 0 #FFF;
+}
+
+.sprite:nth-child(2) { animation-delay: 0.5s; }
+.sprite:nth-child(3) { animation-delay: 1s; }
+
+@keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-text h1 { font-size: 32px; }
+    .hero-text h2 { font-size: 18px; }
+    .hero-text p { font-size: 12px; }
+    
+    .pipe-nav {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    .mario-facts {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+/* Scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Additional animations */
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.animate-slide-in-left {
+    animation: slideInFromLeft 0.8s ease-out;
+}
+
+.animate-slide-in-right {
+    animation: slideInFromRight 0.8s ease-out;
+}
